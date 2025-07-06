@@ -61,8 +61,7 @@ def adjusted_r_squared(model, X, y):
     r2 = model.score(X, y)
 
     # 计算调整R²
-    n = X.shape[0]  # 样本数
-    p = X.shape[1]  # 特征数
+    n, p = X.shape  # 样本数和特征数
     adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - p - 1)
 
     return adjusted_r2
