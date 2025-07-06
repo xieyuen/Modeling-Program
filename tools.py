@@ -1,10 +1,6 @@
-"""
-简单工具
-画完图记得show()(pyplot.show和这里的show都一样)
-"""
-
 from typing import Iterable
 
+import numpy as np
 from matplotlib import pyplot as plt
 from pandas import DataFrame, Series
 
@@ -37,12 +33,20 @@ def remove_na(data: DataFrame):
         )
 
 
-def plot(x, y, xlabel=None, ylabel=None):
+def scatter(x, y, *, xlabel=None, ylabel=None,**kwargs):
     """画散点图"""
-    plt.scatter(x, y)
+    plt.scatter(x, y, **kwargs)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
 
 
+def plot(model, x_range, label="model prediction line",**kwargs):
+    """画回归线"""
+    x = np.linspace(x_range.min(), x_range.max()).reshape(-1, 1)
+    y = model.predict(x)
+    plt.plot(x, y, label=label, **kwargs)
+
+
 def show():
-    plt.show()
+    plt.legend()  # 图例
+    plt.show()  # 图像
