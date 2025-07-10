@@ -18,6 +18,6 @@ class Title:
 class Label:
     WATER_RESOURSE = "water resourse"
     RAIN = "rain"
-    TEMP = "average temperture"
+    TEMP = "average temperature"
     HUM = "average humidity"
     TIME = "sunshining time"
