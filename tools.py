@@ -67,7 +67,7 @@ def adjusted_r_squared(model, X, y):
     return adjusted_r2
 
 
-def p_values(model, X, y):
+def p(model, X, y):
     coefficients = model.coef_
     y_pred = model.predict(X)
     
