@@ -1,14 +1,15 @@
 [project]
 name = "Heyuan2025ModelingCompetition"
 version = "1.0.1"
-description = "Add your description here"
+description = "河源市2025第二届高中建模比赛作品"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "matplotlib>=3.10.3",
-    "munpy>=0.0.0",
-    "pandas>=2.3.0",
+    "numpy>=2.3.1",
+    "pandas>=2.3.1",
     "scikit-learn>=1.7.0",
+    "statsmodels>=0.14.5",
 ]
 
 [[tool.uv.index]]
