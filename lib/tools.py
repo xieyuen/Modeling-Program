@@ -34,14 +34,14 @@ def remove_na(data: DataFrame):
         )
 
 
-def scatter(x, y, *, xlabel=None, ylabel=None,**kwargs):
+def scatter(x, y, *, xlabel=None, ylabel=None, **kwargs):
     """画散点图"""
     plt.scatter(x, y, **kwargs)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
 
 
-def plot(model, x_range, label="model prediction line",**kwargs):
+def plot(model, x_range, label="model prediction line", **kwargs):
     """画回归线"""
     x = np.linspace(x_range.min(), x_range.max()).reshape(-1, 1)
     y = model.predict(x)
@@ -70,11 +70,11 @@ def adjusted_r_squared(model, X, y):
 def p(model, X, y):
     coefficients = model.coef_
     y_pred = model.predict(X)
-    
+
     residuals = y - y_pred
     dof = len(X) - len(coefficients) - 1  # 自由度
-    mse = np.sum(residuals**2) / dof
-    
+    mse = np.sum(residuals ** 2) / dof
+
     X_with_const = np.column_stack([np.ones(len(X)), X])  # 添加截距项
     cov_matrix = np.linalg.inv(X_with_const.T @ X_with_const) * mse
     std_errors = np.sqrt(np.diag(cov_matrix))[1:]  # 忽略截距的标准误差

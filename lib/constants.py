@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Title:
+class Index:
     YEAR = "年份"
     WATER_RESOURSE = "水资源总量"
     RAIN = "年降雨量"
