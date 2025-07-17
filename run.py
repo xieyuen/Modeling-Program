@@ -66,9 +66,6 @@ def nn_2():
     (基于{metrics['n_samples']}个样本和{metrics['n_features']}个特征)
     """)
 
-    # 保存模型
-    nn.save('./model/NeuralNetwork/all.pkl')
-
 
 def nn_all():
     data = pd.read_excel("./data/data.xlsx")
@@ -90,6 +87,3 @@ def nn_all():
     RMSE: {metrics['rmse']:.2f}
     (基于{metrics['n_samples']}个样本和{metrics['n_features']}个特征)
     """)
-
-    # 保存模型
-    nn.save('./model/NeuralNetwork/all.pkl')

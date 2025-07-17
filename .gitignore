@@ -11,3 +11,5 @@ wheels/
 
 # pycharm
 /.idea/*
+
+test.py
