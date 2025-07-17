@@ -2,7 +2,8 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from lib import tools
 from lib.constants import Index
-from lib.nn import NeuralNetwork
+from lib.nn.normal import NeuralNetwork as NorNN
+from lib.nn.regularized import NeuralNetwork as RNN
 
 
 def linear_2():
@@ -53,7 +54,7 @@ def nn_2():
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X_]
 
-    nn = NeuralNetwork()
+    nn = NorNN()
     nn.train(x, y)
 
     # 评估
@@ -75,7 +76,7 @@ def nn_all():
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X]
 
-    nn = NeuralNetwork()
+    nn = NorNN()
     nn.train(x, y)
 
     # 评估
@@ -87,3 +88,44 @@ def nn_all():
     RMSE: {metrics['rmse']:.2f}
     (基于{metrics['n_samples']}个样本和{metrics['n_features']}个特征)
     """)
+
+def r_nn_all():
+    data = pd.read_excel("./data/data.xlsx")
+
+    tools.remove_na(data)
+
+    y = data[Index.WATER_RESOURSE]
+    x = data[Index.X]
+
+    nn = RNN()
+    nn.train(x, y)
+
+    # 评估
+    metrics = nn.evaluate(x, y)
+    print(f"""
+    评估结果:
+    R²: {metrics['r2']:.3f}
+    RMSE: {metrics['rmse']:.2f}
+    """)
+    nn.save("./model/NeuralNetwork/regular_all.pkl")
+
+
+def r_nn_2():
+    data = pd.read_excel("./data/data.xlsx")
+
+    tools.remove_na(data)
+
+    y = data[Index.WATER_RESOURSE]
+    x = data[Index.X_]
+
+    nn = RNN()
+    nn.train(x, y)
+
+    # 评估
+    metrics = nn.evaluate(x, y)
+    print(f"""
+    评估结果:
+    R²: {metrics['r2']:.3f}
+    RMSE: {metrics['rmse']:.2f}
+    """)
+    nn.save("./model/NeuralNetwork/regular_2.pkl")
