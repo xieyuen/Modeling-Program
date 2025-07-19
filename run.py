@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-from lib import tools
+from lib import utils
 from lib.constants import Index
 from lib.nn.normal import NeuralNetwork as NorNN
 from lib.nn.regularized import NeuralNetwork as RNN
@@ -9,7 +9,7 @@ from lib.nn.regularized import NeuralNetwork as RNN
 def linear_2():
     data = pd.read_excel("./data/data.xlsx")
 
-    tools.remove_na(data)
+    utils.remove_na(data)
 
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X_]
@@ -22,14 +22,14 @@ def linear_2():
     print("回归系数:", *model.coef_)
     print(f"截距: {model.intercept_}")
     print(f"决定R方: {model.score(x, y)}")
-    print(f"调整R方: {tools.adjusted_r_squared(model.score(x, y), x)}")
-    print("P值:", *tools.p(model, x, y))
+    print(f"调整R方: {utils.adjusted_r_squared(model.score(x, y), x)}")
+    print("P值:", *utils.p(model, x, y))
 
 
 def linear_all():
     data = pd.read_excel("./data/data.xlsx")
 
-    tools.remove_na(data)
+    utils.remove_na(data)
 
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X]
@@ -42,14 +42,14 @@ def linear_all():
     print("回归系数:", *model.coef_)
     print(f"截距: {model.intercept_}")
     print(f"决定R方: {model.score(x, y)}")
-    print(f"调整R方: {tools.adjusted_r_squared(model.score(x, y), x)}")
-    print("P值:", *tools.p(model, x, y))
+    print(f"调整R方: {utils.adjusted_r_squared(model.score(x, y), x)}")
+    print("P值:", *utils.p(model, x, y))
 
 
 def nn_2():
     data = pd.read_excel("./data/data.xlsx")
 
-    tools.remove_na(data)
+    utils.remove_na(data)
 
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X_]
@@ -71,7 +71,7 @@ def nn_2():
 def nn_all():
     data = pd.read_excel("./data/data.xlsx")
 
-    tools.remove_na(data)
+    utils.remove_na(data)
 
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X]
@@ -89,10 +89,11 @@ def nn_all():
     (基于{metrics['n_samples']}个样本和{metrics['n_features']}个特征)
     """)
 
+
 def r_nn_all():
     data = pd.read_excel("./data/data.xlsx")
 
-    tools.remove_na(data)
+    utils.remove_na(data)
 
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X]
@@ -113,7 +114,7 @@ def r_nn_all():
 def r_nn_2():
     data = pd.read_excel("./data/data.xlsx")
 
-    tools.remove_na(data)
+    utils.remove_na(data)
 
     y = data[Index.WATER_RESOURSE]
     x = data[Index.X_]

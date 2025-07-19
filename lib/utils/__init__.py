@@ -82,3 +82,14 @@ def p(model, X, y):
     p_value = 2 * (1 - t.cdf(np.abs(t_stats), df=dof))
 
     return p_value
+
+
+def save(model, file_path):
+    if hasattr(model, "save"):
+        model.save()
+        return
+    
+    import pickle
+
+    with open(file_path, "wb") as f:
+        pickle.dump(model, f)
