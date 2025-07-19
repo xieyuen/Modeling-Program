@@ -1,10 +1,9 @@
-from dataclasses import dataclass
+from enum import Enum
 
 
-@dataclass
-class Index:
+class Index(Enum):
     YEAR = "年份"
-    Y = WATER_RESOURSE = "水资源总量"
+    WATER_RESOURSE = "水资源总量"
     RAIN = "年降雨量"
     TEMP = "年均温"
     HUM = "年平均相对湿度"
@@ -13,8 +12,7 @@ class Index:
     X_ = [RAIN, TIME]
 
 
-@dataclass
-class Label:
+class Label(Enum):
     WATER_RESOURSE = "water resourse"
     RAIN = "rain"
     TEMP = "average temperature"
@@ -22,8 +20,7 @@ class Label:
     TIME = "sun shining time"
 
 
-@dataclass
-class CityName:
-    HE_YUAN = "河源"
-    SHEN_ZHEN = "深圳"
-    BEI_JING = "北京"
+class CityName(Enum):
+    HEYUAN = "河源"
+    SHENZHEN = "深圳"
+    BEIJING = "北京"

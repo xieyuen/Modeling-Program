@@ -24,7 +24,7 @@ def load_model(path, model_type: Literal["lm", "nnn", "rnn"]):
 def main():
     model = load_model("./model/LinearRegression/2_nostandard.pkl", "lm")
 
-    data = pd.read_excel("./data/data.xlsx", CityName.BEI_JING)
+    data = pd.read_excel("./data/data.xlsx", CityName.BEIJING)
 
     X = data[Index.X]
     y = data[Index.WATER_RESOURSE]
