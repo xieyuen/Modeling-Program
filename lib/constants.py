@@ -1,7 +1,4 @@
-from enum import Enum
-
-
-class Index(Enum):
+class Index:
     YEAR = "年份"
     WATER_RESOURSE = "水资源总量"
     RAIN = "年降雨量"
@@ -12,7 +9,7 @@ class Index(Enum):
     X_ = [RAIN, TIME]
 
 
-class Label(Enum):
+class Label:
     WATER_RESOURSE = "water resourse"
     RAIN = "rain"
     TEMP = "average temperature"
@@ -20,7 +17,7 @@ class Label(Enum):
     TIME = "sun shining time"
 
 
-class CityName(Enum):
+class CityName:
     HEYUAN = "河源"
     SHENZHEN = "深圳"
     BEIJING = "北京"
