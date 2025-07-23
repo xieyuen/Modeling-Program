@@ -11,7 +11,7 @@ def linear_2():
 
     utils.remove_na(data)
 
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
     x = data[Index.X_]
 
     model = LinearRegression()
@@ -31,7 +31,7 @@ def linear_all():
 
     utils.remove_na(data)
 
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
     x = data[Index.X]
 
     model = LinearRegression()
@@ -51,7 +51,7 @@ def nn_2():
 
     utils.remove_na(data)
 
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
     x = data[Index.X_]
 
     nn = NorNN()
@@ -73,7 +73,7 @@ def nn_all():
 
     utils.remove_na(data)
 
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
     x = data[Index.X]
 
     nn = NorNN()
@@ -95,7 +95,7 @@ def r_nn_all():
 
     utils.remove_na(data)
 
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
     x = data[Index.X]
 
     nn = RNN()
@@ -116,7 +116,7 @@ def r_nn_2():
 
     utils.remove_na(data)
 
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
     x = data[Index.X_]
 
     nn = RNN()

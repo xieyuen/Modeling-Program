@@ -6,18 +6,33 @@ from constants import Index, Label
 
 
 class Drawer:
+    FONT_FORMAT = {
+        'family':'Times New Roman', 
+        'size': 34,
+    }
+    FONT_TICKS = dict(
+        fontproperties='Times New Roman',
+        size=34,
+    )
+
     def __init__(self, data, threeD=False):
         self.data = data
         if threeD:
             self.fig = plt.figure()
-            self.ax = self.fig.add_axes(Axes3D(self.fig))
+            self.ax: Axes3D = self.fig.add_axes(Axes3D(self.fig))
+        
+        plt.xticks(*self.FONT_TICKS)
+        plt.yticks(*self.FONT_TICKS)
 
     def rain(self):
         plt.scatter(
             self.data[Index.RAIN],
             self.data[Index.Y],
         )
-        plt.title(f"{Label.RAIN} vs {Label.WATER_RESOURSE}")
+        plt.title(
+            f"{Label.RAIN} vs {Label.WATER_RESOURSE}",
+            self.FONT_FORMAT,
+        )
         plt.xlabel(Label.RAIN)
         return self
 
@@ -52,7 +67,7 @@ class Drawer:
         self.ax.scatter(
             self.data[Index.RAIN],
             self.data[Index.TIME],
-            self.data[Index.WATER_RESOURSE],
+            self.data[Index.WATER_RESOURCE],
             label="original data",
         )
         return self
@@ -80,8 +95,9 @@ class Drawer:
         plt.show()
 
     def show_3d(self):
-        self.ax.set_zlabel(Label.WATER_RESOURSE, {"size": 15, "color": "red"})
-        self.ax.set_ylabel(Label.RAIN, {"size": 15, "color": "red"})
-        self.ax.set_xlabel(Label.TIME, {"size": 15, "color": "red"})
+        FONT = {"size": 15, "color": "red", "family": "Times New Roman"}
+        self.ax.set_zlabel(Label.WATER_RESOURSE, FONT)
+        self.ax.set_ylabel(Label.RAIN, FONT)
+        self.ax.set_xlabel(Label.TIME, FONT)
         self.ax.legend()
         plt.show()

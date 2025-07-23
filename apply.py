@@ -2,6 +2,7 @@ import pickle
 from typing import Literal
 
 import pandas as pd
+from matplotlib import pyplot as plt
 
 from lib.constants import CityName, Index
 from lib.nn.normal import NeuralNetwork as NorNN
@@ -22,14 +23,18 @@ def load_model(path, model_type: Literal["lm", "nnn", "rnn"]):
 
 
 def main():
-    model = load_model("./model/LinearRegression/2_nostandard.pkl", "lm")
+    model = load_model("./model/LinearRegression/all_nostandard.pkl", "lm")
 
-    data = pd.read_excel("./data/data.xlsx", CityName.BEIJING)
+    data = pd.read_excel("./data/data.xlsx", CityName.SHENZHEN)
 
     X = data[Index.X]
-    y = data[Index.WATER_RESOURSE]
+    y = data[Index.WATER_RESOURCE]
+    pred_y = model.predict(X)
 
-    print(model.predict(X), y)
+    plt.scatter(X[Index.RAIN], y, color="red", label="original data")
+    plt.scatter(X[Index.RAIN], pred_y, label="prediction")
+    plt.legend()
+    plt.show()
 
 
 if __name__ == "__main__":
