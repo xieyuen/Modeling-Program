@@ -18,12 +18,7 @@ def linear_2():
 
     model.fit(x, y)
 
-    print("变量:", *x.columns.values)
-    print("回归系数:", *model.coef_)
-    print(f"截距: {model.intercept_}")
-    print(f"决定R方: {model.score(x, y)}")
-    print(f"调整R方: {utils.adjusted_r_squared(model.score(x, y), x)}")
-    print("P值:", *utils.p(model, x, y))
+    utils.print_result_for_lm(model, x, y)
 
 
 def linear_all():
@@ -38,12 +33,7 @@ def linear_all():
 
     model.fit(x, y)
 
-    print("变量:", *x.columns.values)
-    print("回归系数:", *model.coef_)
-    print(f"截距: {model.intercept_}")
-    print(f"决定R方: {model.score(x, y)}")
-    print(f"调整R方: {utils.adjusted_r_squared(model.score(x, y), x)}")
-    print("P值:", *utils.p(model, x, y))
+    utils.print_result_for_lm(model, x, y)
 
 
 def nn_2():

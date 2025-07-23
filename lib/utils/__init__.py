@@ -1,7 +1,6 @@
 from typing import Iterable
 
 import numpy as np
-from matplotlib import pyplot as plt
 from pandas import DataFrame, Series
 from scipy.stats import t
 
@@ -32,25 +31,6 @@ def remove_na(data: DataFrame):
             subset=subset,
             inplace=True
         )
-
-
-def scatter(x, y, *, xlabel=None, ylabel=None, **kwargs):
-    """画散点图"""
-    plt.scatter(x, y, **kwargs)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-
-
-def plot(model, x_range, label="model prediction line", **kwargs):
-    """画回归线"""
-    x = np.linspace(x_range.min(), x_range.max()).reshape(-1, 1)
-    y = model.predict(x)
-    plt.plot(x, y, label=label, **kwargs)
-
-
-def show():
-    plt.legend()  # 图例
-    plt.show()  # 图像
 
 
 def r_squared(model, X, y):
@@ -93,3 +73,12 @@ def save(model, file_path):
 
     with open(file_path, "wb") as f:
         pickle.dump(model, f)
+
+
+def print_result_for_lm(model, x, y):
+    print("变量:", *x.columns.values)
+    print("回归系数:", *model.coef_)
+    print(f"截距: {model.intercept_}")
+    print(f"决定R方: {model.score(x, y)}")
+    print(f"调整R方: {adjusted_r_squared(model.score(x, y), x)}")
+    print("P值:", *p(model, x, y))

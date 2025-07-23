@@ -1,10 +1,10 @@
 import warnings
 
-from run import nn_2
+import run
 
 
 def main():
-    nn_2()
+    run.nn_2()
 
 
 if __name__ == "__main__":
