@@ -120,3 +120,16 @@ def r_nn_2():
     RMSE: {metrics['rmse']:.2f}
     """)
     nn.save("./model/NeuralNetwork/regular_2.pkl")
+
+
+def related_r():
+    data = pd.read_excel("./data/data.xlsx")
+
+    utils.remove_na(data)
+
+    y = data[Index.WATER_RESOURCE]
+
+    for i in Index.X:
+        x = data[i]
+        r = utils.related_r(x, y)
+        print(f"{i} 的样本相关系数:", r)

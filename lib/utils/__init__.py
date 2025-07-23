@@ -64,6 +64,26 @@ def p(model, X, y):
     return p_value
 
 
+def related_r(x, y):
+    """样本相关系数"""
+    length = len(x)
+
+    x_mean = x.mean()
+    y_mean = y.mean()
+
+    return (
+        (np.sum(
+            [xi*yi for xi, yi in zip(x, y)]
+            ) - length * x_mean * y_mean)
+        /
+        (np.sqrt(
+            np.sum([xi**2 for xi in x]) - length * x_mean ** 2
+        ) * np.sqrt(
+            np.sum([yi**2 for yi in y]) - length * y_mean ** 2
+        ))
+    )
+
+
 def save(model, file_path):
     if hasattr(model, "save"):
         model.save()

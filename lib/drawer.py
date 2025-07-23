@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-from constants import Index, Label
+from lib.constants import Index, Label
 
 
 class Drawer:
@@ -11,7 +11,7 @@ class Drawer:
         'size': 34,
     }
     FONT_TICKS = dict(
-        fontproperties='Times New Roman',
+        family='Times New Roman',
         size=34,
     )
 
@@ -20,18 +20,11 @@ class Drawer:
         if threeD:
             self.fig = plt.figure()
             self.ax: Axes3D = self.fig.add_axes(Axes3D(self.fig))
-        
-        plt.xticks(*self.FONT_TICKS)
-        plt.yticks(*self.FONT_TICKS)
 
     def rain(self):
         plt.scatter(
             self.data[Index.RAIN],
             self.data[Index.Y],
-        )
-        plt.title(
-            f"{Label.RAIN} vs {Label.WATER_RESOURSE}",
-            self.FONT_FORMAT,
         )
         plt.xlabel(Label.RAIN)
         return self
@@ -41,7 +34,6 @@ class Drawer:
             self.data[Index.TEMP],
             self.data[Index.Y],
         )
-        plt.title(f"{Label.TEMP} vs {Label.WATER_RESOURSE}")
         plt.xlabel(Label.TEMP)
         return self
 
@@ -50,7 +42,6 @@ class Drawer:
             self.data[Index.HUM],
             self.data[Index.Y],
         )
-        plt.title(f"{Label.HUM} vs {Label.WATER_RESOURSE}")
         plt.xlabel(Label.HUM)
         return self
 
@@ -59,7 +50,6 @@ class Drawer:
             self.data[Index.TIME],
             self.data[Index.Y],
         )
-        plt.title(f"{Label.TIME} vs {Label.WATER_RESOURSE}")
         plt.xlabel(Label.TIME)
         return self
 

@@ -19,17 +19,30 @@ def scatter_3d():  # 三维散点图
 
 def exper_and_pred(exp):
     drawer = Drawer(data, True)
-    drawer.experience_rain_time(exp)
+    drawer.experience_rain_time(exp).rain_and_time()
     drawer.show_3d()
 
 
 if __name__ == "__main__":
     # scatter_2d()
     # scatter_3d()
-    import pickle
-    with open("../model/LinearRegression/2_nostandard.pkl") as f:
-        model = pickle.load(f)
+    # import pickle
+    # with open("./model/LinearRegression/2_nostandard.pkl") as f:
+    #     model = pickle.load(f)
     
+    from lib.constants import Index
+    from lib import utils
+    from sklearn.linear_model import LinearRegression
+
+    utils.remove_na(data)
+
+    y = data[Index.WATER_RESOURCE]
+    x = data[Index.X_]
+
+    model = LinearRegression()
+
+    model.fit(x, y)
+
     def exp(x, y):
         return x * model.coef_[0] + y * model.coef_[1] + model.intercept_
     exper_and_pred(exp)

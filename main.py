@@ -4,7 +4,7 @@ import run
 
 
 def main():
-    run.nn_2()
+    run.related_r()
 
 
 if __name__ == "__main__":
