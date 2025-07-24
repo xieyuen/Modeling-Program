@@ -3,7 +3,7 @@
 ### 代码运行要求:
 
 1. 运行环境:
-   - python 3.11 或以上
+   - [python 3.11 或以上](<https://www.python.org>)
    - (可选) [uv](<https://docs.astral.sh/uv/>)
 2. [安装模块](<https://developer.aliyun.com/mirror> "推荐使用阿里云镜像站下载"):
   - scikit-learn
@@ -30,7 +30,7 @@
 - 决定R²: 0.9571011837013047
 - 调整R²: 0.9509727813729196
 
-> 注：此模型未对数据标准化，模型文件 `.pkl` 已经上传到 [**releases**](<https://github.com/xieyuen/Modeling-Program/releases> "点击跳转到releases") 中
+> 注：此模型未对数据标准化，模型文件 `.pkl` 已经上传到 [releases](<https://github.com/xieyuen/Modeling-Program/releases> "点击跳转到releases") 中
 
 #### 神经网络模型
 
@@ -43,8 +43,9 @@
 
 ### 部分`matplotlib`绘制结果
 
+更多图片见 [RESULT.md](<./photo/RESULT.md> "仅提供矢量图预览")
+
 ![](<./photo/humidity.png>)
 ![](<./photo/rain.png>)
 ![](<./photo/temperature.png>)
 ![](<./photo/sunshining_time.png>)
-![](<./photo/rain_and_time.png>)
