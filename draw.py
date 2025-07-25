@@ -24,25 +24,12 @@ def exper_and_pred(exp):
 
 
 if __name__ == "__main__":
-    # scatter_2d()
+    scatter_2d()
     # scatter_3d()
     # import pickle
-    # with open("./model/LinearRegression/2_nostandard.pkl") as f:
+    # with open("./model/LinearRegression/2_nostandard.pkl", "rb") as f:
     #     model = pickle.load(f)
-    
-    from lib.constants import Index
-    from lib import utils
-    from sklearn.linear_model import LinearRegression
 
-    utils.remove_na(data)
-
-    y = data[Index.WATER_RESOURCE]
-    x = data[Index.X_]
-
-    model = LinearRegression()
-
-    model.fit(x, y)
-
-    def exp(x, y):
-        return x * model.coef_[0] + y * model.coef_[1] + model.intercept_
-    exper_and_pred(exp)
+    # def exp(x, y):
+    #     return x * model.coef_[0] + y * model.coef_[1] + model.intercept_
+    # exper_and_pred(exp)

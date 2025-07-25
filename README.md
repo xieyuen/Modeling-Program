@@ -43,7 +43,7 @@
 
 ### 部分`matplotlib`绘制结果
 
-更多图片见 [RESULT.md](<./photo/RESULT.md> "仅提供矢量图预览")
+更多图片见 [RESULT.md](<./photo/RESULT.md> "此文件仅提供矢量图预览")
 
 ![](<./photo/humidity.png>)
 ![](<./photo/rain.png>)

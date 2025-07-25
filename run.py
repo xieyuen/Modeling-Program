@@ -1,5 +1,8 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
+from statsmodels import api as sm
+
 from lib import utils
 from lib.constants import Index
 from lib.nn.normal import NeuralNetwork as NorNN
@@ -33,6 +36,33 @@ def linear_all():
 
     model.fit(x, y)
 
+    m2 = sm.OLS(y, sm.add_constant(x)).fit()
+
+    print(m2.summary())
+
+    utils.print_result_for_lm(model, x, y)
+
+
+def linear_2_standardized():
+    # 读取数据
+    data = pd.read_excel("./data/standardized.xlsx")
+    # 定义因变量
+    y = data[Index.WATER_RESOURCE]
+    # 定义自变量
+    x = data[Index.X_]
+
+    # 创建线性回归模型
+    model = LinearRegression()
+
+    # 拟合模型
+    model.fit(x, y)
+
+    # 使用OLS方法拟合模型
+    m2 = sm.OLS(y, sm.add_constant(x)).fit()
+    # 打印模型摘要
+    print(m2.summary())
+
+    # 打印线性回归模型结果
     utils.print_result_for_lm(model, x, y)
 
 
