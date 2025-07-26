@@ -1,6 +1,6 @@
 [project]
 name = "Heyuan2025ModelingCompetition"
-version = "1.1.0"
+version = "1.2.0"
 description = "河源市2025第二届高中建模比赛作品"
 readme = "README.md"
 requires-python = ">=3.11"

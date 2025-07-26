@@ -7,6 +7,7 @@ class Index:
     TIME = "年日照时间"
     X = [RAIN, TEMP, HUM, TIME]  # 四元自变量
     X_ = [RAIN, TIME]  # 二元自变量
+    CITY = "城市"
 
 
 class Label:
