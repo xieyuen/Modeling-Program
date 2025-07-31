@@ -8,6 +8,11 @@ class Index:
     X = [RAIN, TEMP, HUM, TIME]  # 四元自变量
     X_ = [RAIN, TIME]  # 二元自变量
     CITY = "城市"
+    AREA = "城市面积"
+    STORAGE = "大型水库蓄水量"      
+    USAGE = "总用水量"
+    X_ADDED = [*X_, AREA, STORAGE, USAGE]
+    VAR = [*X_ADDED, Y]
 
 
 class Label:

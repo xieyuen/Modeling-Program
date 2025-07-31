@@ -7,6 +7,7 @@
    - (可选) [uv](<https://docs.astral.sh/uv/>)
 2. [安装模块](<https://developer.aliyun.com/mirror> "推荐使用阿里云镜像站下载"):
   - scikit-learn
+  - statsmodels
   - numpy
   - pandas
   - matplotlib
